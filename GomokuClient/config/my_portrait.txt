@@ -1,0 +1,1 @@
+userId = 1;imageName = 6-1.png
