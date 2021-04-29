@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.ByteArrayOutputStream;
 import java.net.InetSocketAddress;
@@ -301,17 +299,17 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			
 			if(message[0].equals("login")&&message.length == 3)		//user log in
 			{
-				//format£º"login;userName;password"
+				//formatï¼š"login;userName;password"
 				doUserLogin(message,client);
 			}
 			else if(message[0].equals("regist"))					//user register
 			{
-				//format£º"regist;id;name;password"
+				//formatï¼š"regist;id;name;password"
 				regist(client,message[1],message[2],message[3]);
 			}
 			else if(message[0].equals("sitdown2"))					//user sit down
 			{
-				//format£º"sitdown;tableid;seatid;image"
+				//formatï¼š"sitdown;tableid;seatid;image"
 				int deskNumber = Integer.parseInt(message[1]);
 				int chairNumber = Integer.parseInt(message[2]);
 
@@ -446,7 +444,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("started"))					//game start
 			{
-				//format£º"started;tableid;x;y;color"
+				//formatï¼š"started;tableid;x;y;color"
 				int deskNumber = Integer.parseInt(message[1]);
 				int i = getUserNum(client);
 				Users[i].setDeskNumber(deskNumber);
@@ -456,7 +454,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("ready"))						//player ready
 			{
-				//format£º"ready;tableid"
+				//formatï¼š"ready;tableid"
 				int deskNumber = Integer.parseInt(message[1]);
 				Tables[deskNumber].doReadyGame(client);
 				if(Tables[deskNumber].getIsStart()){				
@@ -465,7 +463,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("userMessage"))				//user message
 			{
-				//format£º"userMessage;tableid;msg"
+				//formatï¼š"userMessage;tableid;msg"
 				int deskNumber = Integer.parseInt(message[1]);
 				int index = str.indexOf(";");
 				index = str.indexOf(";", index + 1);
@@ -475,7 +473,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("userBroadcastMessage"))		//hall message
 			{
-				//format£º"userBroadcastMessage;msg"
+				//formatï¼š"userBroadcastMessage;msg"
 				int index = str.indexOf(";");
 				String mInfor = str.substring(index + 1);
 				if(mInfor.equals(""))	return; 
@@ -483,7 +481,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("userSeparateChatMessage"))	//user to user
 			{
-				//format£º"userBroadcastMessage;userId;msg"
+				//formatï¼š"userBroadcastMessage;userId;msg"
 				String userId = message[1];
 				int index = str.indexOf(";");
 				index = str.indexOf(";", index + 1);
@@ -493,7 +491,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("closeTable"))				
 			{
-				//format£º"closeTable;tableid"
+				//formatï¼š"closeTable;tableid"
 				int deskNumber = Integer.parseInt(message[1]);
 				Tables[deskNumber].viewerExit(client);
 				resetUserSeat(client);
@@ -501,44 +499,44 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("rollbackRequest"))			
 			{
-				//format£º"rollbackRequest;tableid;step"
+				//formatï¼š"rollbackRequest;tableid;step"
 				int deskNumber = Integer.parseInt(message[1]);
 				Tables[deskNumber].rollbackForward(message[2],client);
 			}
 			else if(message[0].equals("replyRBForward"))			
 			{
-				//format£º"replyRBForward;tableid;reply;step"
+				//formatï¼š"replyRBForward;tableid;reply;step"
 				int deskNumber = Integer.parseInt(message[1]);
 				Tables[deskNumber].doRollback(Integer.parseInt(message[2]),Integer.parseInt(message[3]),client);
 			}
 			else if(message[0].equals("refreshGamersInforPartly"))	
 			{
-				//format£º"refreshGamersInforPartly;table"
+				//formatï¼š"refreshGamersInforPartly;table"
 				int deskNumber = Integer.parseInt(message[1]);
 				Tables[deskNumber].refreshGamersInforPartly(client);
 			}
 			else if(message[0].equals("refreshViewersInforPartly"))	
 			{
-				//format£º"refreshViewersInforPartly;tableid"
+				//formatï¼š"refreshViewersInforPartly;tableid"
 				int deskNumber = Integer.parseInt(message[1]);
 				Tables[deskNumber].refreshViewersInforPartly(client);
 			}
 			else if(message[0].equals("admitLose"))					
 			{
-				//format£º"admitLose;tableid;color"
+				//formatï¼š"admitLose;tableid;color"
 				int deskNumber = Integer.parseInt(message[1]);
 				Tables[deskNumber].admitLose(message[2]);
 				broadcast(seatState());
 			}
 			else if(message[0].equals("drawRequest"))				
 			{
-				//format£º"drawRequest;tableid;"
+				//formatï¼š"drawRequest;tableid;"
 				int deskNumber = Integer.parseInt(message[1]);
 				Tables[deskNumber].drawRequest(client);
 			}
 			else if(message[0].equals("drawRequestReply"))			
 			{
-				//format£º"drawRequestReply;tableid;reply"
+				//formatï¼š"drawRequestReply;tableid;reply"
 				int deskNumber = Integer.parseInt(message[1]);
 				if(Tables[deskNumber].doDraw(client , Integer.parseInt(message[2]))){
 					broadcast(seatState());
@@ -546,7 +544,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("addFriendRequest"))			
 			{
-				//format£º"addFriendRequest;userId"
+				//formatï¼š"addFriendRequest;userId"
 				int i = getUserNum(client);
 				int j = getUserNumByUserId(message[1]);
 				if(isExsitFriend(Users[i].getId(),Users[i].getName(),Users[j].getId(),Users[j].getName())){
@@ -557,7 +555,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("agreeAddFriend"))			
 			{
-				//format£º"agreeAddFriend;userId"
+				//formatï¼š"agreeAddFriend;userId"
 				int j = getUserNum(client);
 				int i = getUserNumByUserId(message[1]);
 				boolean isAdd = addFriend(Users[i].getId(),Users[i].getName(),Users[j].getId(),Users[j].getName());
@@ -568,13 +566,13 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 			else if(message[0].equals("viewFriends"))				
 			{
-				//format£º"viewFriends;"
+				//formatï¼š"viewFriends;"
 				int i = getUserNum(client);
 				c.sendInforBack(client,getFriends(Users[i].getId()));
 			}
 			else if(message[0].equals("delFriend"))					
 			{
-				//format£º"delFriend;userId;userName"
+				//formatï¼š"delFriend;userId;userName"
 				int i = getUserNum(client);
 				int j = getUserNumByUserId(message[1]);
 				boolean isSuccess = delFriend(Users[i].getId(),Users[i].getName(),message[1],message[2]);
@@ -825,7 +823,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 				String userFormatId = Users[i].getId();
 				int idLenth = userFormatId.getBytes().length;
 				if(idLenth > 8){
-					userFormatId = userFormatId.substring(0,3)+"¡­";
+					userFormatId = userFormatId.substring(0,3)+"â€¦";
 					idLenth = userFormatId.getBytes().length;
 				}
 				String idPos = "";
@@ -867,12 +865,12 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 		for(int j = 0; j < Tables.length; j ++){
 			for(int k = 0 ; k < 2 ; k++)
 			if(!Tables[j].seat[k].userId.equals("")){
-				seatState = seatState + j + "¡ý";
-				seatState = seatState + k + "¡ý";
-				seatState = seatState + Tables[j].seat[k].userId + "¡ý";
-				seatState = seatState + Tables[j].seat[k].userName + "¡ý";
-				seatState = seatState + Tables[j].seat[k].pictName + "¡ý";
-				seatState = seatState + Tables[j].getIsStart() + "¡ü";
+				seatState = seatState + j + "â†“";
+				seatState = seatState + k + "â†“";
+				seatState = seatState + Tables[j].seat[k].userId + "â†“";
+				seatState = seatState + Tables[j].seat[k].userName + "â†“";
+				seatState = seatState + Tables[j].seat[k].pictName + "â†“";
+				seatState = seatState + Tables[j].getIsStart() + "â†‘";
 			}
 		}
 		return seatState;
@@ -960,7 +958,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 				ucolor = Users[i].getUColor();
 				int score = Users[i].getScore();
 				userPortrait = Users[i].getPortrait();
-				infor += uId + "¡ý" + uName + "¡ý" + ucolor + "¡ý" + score + "¡ý" + userPortrait + "¡ü";
+				infor += uId + "â†“" + uName + "â†“" + ucolor + "â†“" + score + "â†“" + userPortrait + "â†‘";
 			}
 		}
 		return infor;
