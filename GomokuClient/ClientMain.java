@@ -12,3 +12,5 @@ public class ClientMain {
 		new InforChange(c);										
 	}
 }
+
+
