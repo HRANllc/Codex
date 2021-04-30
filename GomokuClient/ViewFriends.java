@@ -1,4 +1,3 @@
-
 import java.awt.PopupMenu;
 import java.awt.MenuItem;
 import java.awt.Insets;
@@ -101,7 +100,7 @@ class ViewFriends extends JFrame implements ActionListener, MouseListener, Mouse
 					String userFormatId = friendsInfors[0];
 					int idLenth = userFormatId.getBytes().length;
 					if(idLenth > 8){
-						userFormatId = userFormatId.substring(0,3)+"¡­";
+						userFormatId = userFormatId.substring(0,3)+"Â¡Â­";
 						idLenth = userFormatId.getBytes().length;
 					}
 					String idPos = "";
@@ -198,4 +197,3 @@ class ViewFriends extends JFrame implements ActionListener, MouseListener, Mouse
 		super.paintComponents(g);
 	}
 }
-
