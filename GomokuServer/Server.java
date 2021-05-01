@@ -52,7 +52,6 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 	private JLabel viewersInfors[];
 	private String viewersInforsID[];
 
-
 	//constructor
 	Server(Constant cc)												
 	{
@@ -75,8 +74,7 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 		for(int i = 0;i < Tables.length;i++){						
 			Tables[i] = new GameTable(c);
 			Tables[i].setUsers(Users);
-			Tables[i].setServer(this);
-			
+			Tables[i].setServer(this);	
 		}
 
 		Users = new UAS[c.maxUsers];								
@@ -804,14 +802,11 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 			}
 		}
 		
-		
 		broadcast(seatState());										
 		refreshGameHallPlayers();
 		if(c.isShowUser){
 			refreshShowUser();
 		}
-
-		
 	}
 
 	public void refreshShowUser(){									
@@ -904,7 +899,8 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 					c.sendInforBack(Users[i].getUserChannel(),userMessage);
 				}
 				else																
-				{	Users[i].clear();	}
+				{	Users[i].clear();	
+				}
 			}
 		}
 	}
@@ -926,7 +922,8 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 					break;
 				}
 				else																
-				{	Users[i].clear();	}
+				{	Users[i].clear();	
+				}
 			}
 		}
 		c.sendInforBack(client,userMessage);						
@@ -963,7 +960,6 @@ class Server extends JFrame	implements ActionListener, MouseListener, MouseMotio
 		}
 		return infor;
 	}
-
 
 	public int getUserNumByUserId(String Id)						
 	{
