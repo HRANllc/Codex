@@ -105,7 +105,7 @@ class Constant
 			sbuffer.put(sendBytes);									
 			sbuffer.flip();											
 			socket.write(sbuffer);									
-			System.out.println("send£º" + message);
+			System.out.println("sendÂ£Âº" + message);
 		}
 		catch(Exception e){
 			System.out.println("send data error");
@@ -113,3 +113,4 @@ class Constant
 		}
 	}
 }
+
