@@ -1,4 +1,3 @@
-
 import java.awt.Insets;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -820,10 +819,10 @@ class Wuziqi extends JFrame implements ActionListener, MouseListener, MouseMotio
 
 	public void refreshViewersInfor(String Viewer)					
 	{
-		//format£º"userId , usreName , color , score"
-		String []viewers = Viewer.split("¡ü");
+		//formatï¼š"userId , usreName , color , score"
+		String []viewers = Viewer.split("â†‘");
 		int viewersLen = 0;
-		String []formerViewers = formerViewersInfor.split("¡ü");
+		String []formerViewers = formerViewersInfor.split("â†‘");
 		int formersLen = 0;
 
 		for(int i = 0;i< viewers.length ;i++){
@@ -849,9 +848,9 @@ class Wuziqi extends JFrame implements ActionListener, MouseListener, MouseMotio
 		if(!Viewer.equals(formerViewersInfor)){
 			for(int i = 0;i< viewersLen ;i++){
 				boolean isExist = false;
-				String []viewerMasses = viewers[i].split("¡ý");
+				String []viewerMasses = viewers[i].split("â†“");
 				for(int j = 0;j< formersLen ;j++){
-					String []formerMasses = formerViewers[j].split("¡ý");
+					String []formerMasses = formerViewers[j].split("â†“");
 					if(viewerMasses[0].trim().equals(formerMasses[0].trim())){
 						isExist = true;
 						break;										
@@ -859,16 +858,16 @@ class Wuziqi extends JFrame implements ActionListener, MouseListener, MouseMotio
 				}
 				if(!isExist){
 					if(!viewers[i].trim().equals("")){
-						String []mass = viewers[i].split("¡ý");
+						String []mass = viewers[i].split("â†“");
 						addToChatLabel("game info: " + mass[1]+" entered");
 					}
 				}
 			}
 			for(int i = 0;i < formersLen ;i++){
 				boolean isExist = false;
-				String []formerMasses = formerViewers[i].split("¡ý");
+				String []formerMasses = formerViewers[i].split("â†“");
 				for(int j = 0;j < viewersLen ;j++){
-					String []viewerMasses = viewers[j].split("¡ý");
+					String []viewerMasses = viewers[j].split("â†“");
 					if(viewerMasses[0].equals(formerMasses[0].trim())){
 						isExist = true;
 						break;										
@@ -876,7 +875,7 @@ class Wuziqi extends JFrame implements ActionListener, MouseListener, MouseMotio
 				}
 				if(!isExist){
 					if(!formerViewers[i].trim().equals("")){
-						String []mass = formerViewers[i].split("¡ý");
+						String []mass = formerViewers[i].split("â†“");
 						addToChatLabel("game info: " + mass[1]+" left");
 					}
 				}
@@ -890,7 +889,7 @@ class Wuziqi extends JFrame implements ActionListener, MouseListener, MouseMotio
 		showUsers.removeAll();
 		for(int i = 0 ; i < viewersLen ; i++)						
 		{
-			String []mass = viewers[i].split("¡ý");
+			String []mass = viewers[i].split("â†“");
 			if(mass[0].equals("")) continue;
 			viewersInforsID[i] = mass[0];
 			viewersInforsName[i] = mass[1];
@@ -898,7 +897,7 @@ class Wuziqi extends JFrame implements ActionListener, MouseListener, MouseMotio
 			viewersPortrait[i] = mass[4];
 			int nameLength = mass[1].getBytes().length;
 			if(nameLength > 8){
-				mass[1] = mass[1].substring(0,3)+"¡­";
+				mass[1] = mass[1].substring(0,3)+"â€¦";
 				nameLength = mass[1].getBytes().length;
 			}
 			String namePos = "";
@@ -934,7 +933,7 @@ class Wuziqi extends JFrame implements ActionListener, MouseListener, MouseMotio
 
 	public void refreshGamersInfor(String infor1,String infor2)		
 	{
-		//format£º"userId , usreName , color , score"
+		//formatï¼š"userId , usreName , color , score"
 		String thisScore = "";
 		String oppoScore = "";
 		if(user_color < 0) {										
@@ -1003,7 +1002,7 @@ class Wuziqi extends JFrame implements ActionListener, MouseListener, MouseMotio
 
 	public void refreshGamersInfor(String infor1)					
 	{
-		//format£º"userId , usreName , color , score"
+		//formatï¼š"userId , usreName , color , score"
 		if(user_color < 0) {
 			return ;
 		}
