@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
@@ -52,7 +51,7 @@ class Constant														//The Constant class, used to save constants used
 			sendbuffer.put(sendBytes);								//put message into buffer
 			sendbuffer.flip();										//reset flags
 			client.write(sendbuffer);								//send message
-			System.out.println("send£º" + message);
+			System.out.println("sendÂ£Âº" + message);
 		}
 		catch (Exception e) {
 			System.out.println("send error.");
