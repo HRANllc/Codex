@@ -13,7 +13,7 @@ class GameTable
 	private TXTDataBase txtDataBase;								//txtdatabase
 	private Server server;
 	private int tableNumber = -1;
-	private UAS Gamers[];											//current player  Gamers[0] white £¬ Gamers[1] black
+	private UAS Gamers[];											//current player  Gamers[0] white Â£Â¬ Gamers[1] black
 	private UAS Viewers[];											
 	private UAS Users[];
 	private int viewerSum = 0;										
@@ -231,7 +231,6 @@ class GameTable
 			refreshViewersInfor();
 		}
 	}
-
 
 	public int getViewerNum(SocketChannel client)					
 	{
@@ -539,7 +538,7 @@ class GameTable
 				score = Viewers[i].getScore();
 				userPortrait = Viewers[i].getPortrait();
 				//System.out.println(uId+";"+uName+""+score+"#");
-				infor += uId + "¡ý" + uName + "¡ý" + ucolor + "¡ý" + score + "¡ý" + userPortrait + "¡ü";
+				infor += uId + "Â¡Ã½" + uName + "Â¡Ã½" + ucolor + "Â¡Ã½" + score + "Â¡Ã½" + userPortrait + "Â¡Ã¼";
 			}
 		}
 		return infor;
