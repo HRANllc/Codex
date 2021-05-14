@@ -678,3 +678,4 @@ class InforChange implements Runnable
 		}
 	} 
 }
+
