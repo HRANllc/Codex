@@ -106,3 +106,4 @@ class PlayerInfor extends JFrame implements ActionListener, MouseListener, Mouse
 		}
 	} 
 } 
+
