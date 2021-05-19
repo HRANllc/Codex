@@ -12,3 +12,4 @@ public class GomokuMain {
 		new Server(c);		
 	}
 }
+
